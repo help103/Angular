@@ -1,0 +1,91 @@
+﻿<h1> Model Driven Form </h1>
+<form [formGroup]="CustFrm" (ngSubmit)="SaveCustomer()">
+    <div>
+        <label> Name :</label>
+        <div>
+            <input type="text" formControlName="CustomerName" />
+        </div>
+        <div *ngIf="(CustFrm.controls.CustomerName.invalid) && ((CustFrm.controls.CustomerName.touched) ||( CustFrm.controls.CustomerName.dirty))">
+            <div *ngIf="CustFrm.controls['CustomerName'].hasError('required')">
+                Name is Required
+            </div>
+            <div *ngIf="CustFrm.controls['CustomerName'].hasError('minlength')">
+
+                Name is Required
+            </div>
+            <div *ngIf="CustFrm.controls['CustomerName'].hasError('required')">
+                Minimum Five Characters
+            </div>
+        </div>
+        <div *ngIf="CustFrm.controls['CustomerName'].hasError('maxlength')">
+            Maximum Five Characters
+        </div>
+    </div>
+
+
+    <div>
+        <label> Address :</label>
+        <div>
+            <input type="text" formControlName="Address" />
+        </div>
+
+    </div>
+
+    <!-- <div formGroupName="Address">
+              <div>
+                  <label>Street </label>
+                  <div>
+                      <input type="text" formControlName="Street" />
+                  </div>
+              </div>
+              <div>
+                    <label>Area:</label>
+                    <div>
+                        <input type="text" formControlName="AreaName" />
+                    </div>
+                </div>
+
+                <div>
+                        <label>PinCode</label>
+                        <div>
+                            <input type="text" formControlName="PinCode" />
+                        </div>
+                    </div>
+       </div>
+    -->
+    <div>
+        <label> Emaild ID :</label>
+        <div>
+            <input type="text" formControlName="EmailID" />
+        </div>
+        <div *ngIf="(CustFrm.controls.EmailID.invalid) && ((CustFrm.controls.EmailID.touched) ||( CustFrm.controls.CEmail.dirty))">
+            <div *ngIf="CustFrm.controls['EmailID'].hasError('required')">
+                Name is Required
+            </div>
+            <div *ngIf="CustFrm.controls['EmailID'].hasError('email')">
+                Invalid Email ID
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <label> Mobile No:</label>
+        <div>
+            <input type="text" formControlName="MobileNo" />
+        </div>
+
+    </div>
+
+    <div>
+        <label> Credit Limit :</label>
+        <div>
+            <input type="text" formControlName="CreditLimit" />
+        </div>
+
+    </div>
+
+    <div>
+        <input type="submit" value="Save" [disabled]="CustFrm.invalid" />
+    </div>
+</form>

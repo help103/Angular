@@ -1,0 +1,70 @@
+﻿<h1> Edit Customer </h1>
+<form [formGroup]="CustFrm" (ngSubmit)="UpdateCustomer()">
+    <div>
+        <label> Name :</label>
+        <div>
+            <input type="text" formControlName="CustomerName" />
+        </div>
+        <div *ngIf="(CustFrm.controls.CustomerName.invalid) && ((CustFrm.controls.CustomerName.touched) ||( CustFrm.controls.CustomerName.dirty))">
+            <div *ngIf="CustFrm.controls['CustomerName'].hasError('required')">
+                Name is Required
+            </div>
+            <div *ngIf="CustFrm.controls['CustomerName'].hasError('minlength')">
+
+                Name is Required
+            </div>
+            <div *ngIf="CustFrm.controls['CustomerName'].hasError('required')">
+                Minimum Five Characters
+            </div>
+        </div>
+        <div *ngIf="CustFrm.controls['CustomerName'].hasError('maxlength')">
+            Maximum Five Characters
+        </div>
+    </div>
+
+
+    <div>
+        <label> Address :</label>
+        <div>
+            <input type="text" formControlName="Address" />
+        </div>
+
+    </div>
+
+    
+    <div>
+        <label> Emaild ID :</label>
+        <div>
+            <input type="text" formControlName="EmailID" />
+        </div>
+        <div *ngIf="(CustFrm.controls.EmailID.invalid) && ((CustFrm.controls.EmailID.touched) ||( CustFrm.controls.CEmail.dirty))">
+            <div *ngIf="CustFrm.controls['EmailID'].hasError('required')">
+                Name is Required
+            </div>
+            <div *ngIf="CustFrm.controls['EmailID'].hasError('email')">
+                Invalid Email ID
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <label> Mobile No:</label>
+        <div>
+            <input type="text" formControlName="MobileNo" />
+        </div>
+
+    </div>
+
+    <div>
+        <label> Credit Limit :</label>
+        <div>
+            <input type="text" formControlName="CreditLimit" />
+        </div>
+
+    </div>
+
+    <div>
+        <input type="submit" value="Update" [disabled]="CustFrm.invalid" />
+    </div>
+</form>

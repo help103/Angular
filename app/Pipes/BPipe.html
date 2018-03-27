@@ -1,0 +1,22 @@
+<h4 changecolor> Built In Pipes</h4>
+
+ Enter Number:<input type="text" [(ngModel)]="Input" /> <br>
+ <ul [ngSwitch]="Input" >
+     <li *ngSwitchCase="1"> First LI Injectd </li>
+     <li *ngSwitchCase="2"> Second LI Injectd </li>
+     <li *ngSwitchCase="3"> Third LI Injectd </li>
+     <li *ngSwitchCase="4"> Fourth LI Injectd </li>
+     <li *ngSwitchDefault>Default LI Injectd </li>
+ </ul>
+
+ <span *ngIf="Flag;else elsepart">Flag is True So span </span>
+ <ng-template #elsepart>  <h3>Flag is False so H3</h3>
+ </ng-template>
+ <br>
+ <input changecolor type="button" value="Click" (click) ="toggle()" />
+Name:{{StudentName|uppercase}} <br>
+Name:{{StudentName|lowercase}} <br>
+Amount :{{Amount|currency:'INR'}} <br>
+Birth Date: {{BirthDate|date:'shortDate'}}<br>
+Birth Date: {{BirthDate|date:'longDate'}}<br>
+Birth Date: {{BirthDate|date:'dd/MM/yyyy'}}<br>

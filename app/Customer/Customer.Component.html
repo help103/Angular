@@ -1,0 +1,28 @@
+<h2> Customer List </h2>
+<hr>
+ <a href="#" [routerLink]="['/custnew']" >New Customer </a>
+ <a href="#" [routerLink]="['/custnewmodel']" >New Customer using Model Driven </a>
+<hr>
+ <div>
+     <hr>
+      Search By Name: <input type="text" [(ngModel)]="searchText" />
+     <hr>
+ </div>
+<table border="1">
+    <tr>
+        <td>Customer ID</td>
+        <td>Customer Name</td>
+        <td>Address</td>
+        <td>Email ID</td>
+        <td>Mobile No</td>
+        <td>Credit Limit</td>
+    </tr>
+    <tr *ngFor="let temp of Customers|CFilter:searchText">
+     <td>{{temp.CustomerID}}</td>
+     <td>{{temp.CustomerName}}</td>
+     <td>{{temp.Address}}</td>
+     <td>{{temp.EmailID}}</td>
+     <td>{{temp.MobileNo}}</td>
+     <td>{{temp.CreditLimit}}</td>
+    </tr>
+</table>

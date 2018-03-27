@@ -1,0 +1,26 @@
+﻿<h2> Customer List </h2>
+<hr>
+<a href="#" [routerLink]="['/newcust']">New Customer</a>
+
+<hr>
+
+<table border="1">
+    <tr>
+        <td>Customer ID</td>
+        <td>Customer Name</td>
+        <td>Address</td>
+        <td>Email ID</td>
+        <td>Mobile No</td>
+        <td>Credit Limit</td>
+    </tr>
+    <tr *ngFor="let temp of Customers">
+        <td>{{temp.CustomerID}}</td>
+        <td>{{temp.CustomerName}}</td>
+        <td>{{temp.Address}}</td>
+        <td>{{temp.EmailID}}</td>
+        <td>{{temp.MobileNo}}</td>
+        <td>{{temp.CreditLimit}}</td>
+        <td> <a href="#" [routerLink]="['/editcust',temp.CustomerID]">Edit </a></td>
+        <td> <a href="#">Delete </a></td>
+    </tr>
+</table>

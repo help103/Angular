@@ -1,0 +1,83 @@
+<h2> New Customer </h2>
+<form #custfrm="ngForm" (ngSubmit)="SaveCustomer(custfrm.value)" >
+     <div>
+         <label> Enter Name:</label>
+         <div>
+             <input #cname="ngModel" type="text" name="CustomerName" required minlength="5" ngModel />
+             {{cname.className}}
+             <div *ngIf="cname.errors && (cname.touched || cname.dirty)">
+                 <div [hidden]="!cname.errors.required">
+                      Name Required
+                 </div>
+                 <div [hidden]="!cname.errors.minlength">
+                       Minimum Five Characters
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <div>
+            <label> Address:</label>
+            <div>
+                <input #ad="ngModel" type="text" name="Address" required minlength="5" maxlength="10" ngModel />
+                <div *ngIf="ad.errors && (ad.touched || ad.dirty)">
+                  <div [hidden]="!ad.errors.required">
+                     Address Required
+                  </div>
+                  <div [hidden]="!ad.errors.minlength">
+                     Minimum five characters
+                  </div>
+                  <div [hidden]="!ad.errors.maxlength">
+                        Maximum 10 characters
+                     </div>
+                </div>
+            </div>
+        </div>
+   
+
+     <!-- <div ngModelGroup="Address">
+        <div>
+            <label>Street</label>
+            <div>
+                <input type="text" name="Street" ngModel />
+            </div>
+        </div>
+        <div>
+             <label>Area Name:</label>
+             <div>
+                 <input type="text" name="Area" ngModel />
+             </div>
+        </div>
+        <div>
+            <label>Pin Code:</label>
+            <div>
+                <input type="text" name="PinCode" ngModel />
+            </div>
+        </div>
+      </div>
+    -->
+        <div>
+                <label> Email ID:</label>
+                <div>
+                    <input type="text" name="EmailID" ngModel />
+                </div>
+            </div>
+
+            <div>
+                    <label> Mobile No:</label>
+                    <div>
+                        <input type="text" name="MobileNo" ngModel />
+                    </div>
+                </div>
+
+                <div>
+                        <label> Credit Limit:</label>
+                        <div>
+                            <input type="text" name="CreditLimit" ngModel />
+                        </div>
+                    </div>
+        <div>
+            <input type="submit" value="Save" [disabled]="!custfrm.form.valid" />
+            <a href="#" [routerLink]="['/customers']" >Back </a>
+        </div>
+</form>
